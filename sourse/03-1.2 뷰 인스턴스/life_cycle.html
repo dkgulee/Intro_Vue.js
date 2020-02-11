@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>life_cycle</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data :{
+                message : "Hello World"
+            },
+            beforeCreate: function(){
+                console.log("beforeCreate")
+            },
+            created: function(){
+                console.log("created")
+            },
+            mounted: function(){
+                console.log("mounted")
+                this.message = "Hello Vue!"
+            },
+            updated : function(){
+                console.log("updated")
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge'>
+    <title>Hellow_world</title>
+    <!-- 라이브러리 로딩 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+<body>
+    <div id="app">
+        {{ message}}
+    </div>
+    <div id="root">
+
+        {{ message}}
+    </div>
+    <script>
+        // 인스턴스 생성
+        new Vue({
+            // 유효범위
+            el: "#app", 
+            //  {{}}에  data 값에 치환댐
+            data :{
+                message : "Hellow World"
+            }
+        })
+        new Vue({
+            // 유효범위
+            el: "#root", 
+            data :{
+                message : "Hellow root"
+            }
+        })
+    </script>
+
+</body>
+</html>

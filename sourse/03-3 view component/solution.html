@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Page Title</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id ="app">
+		<my-component v-bind:cmpdata="data"></my-component>
+		<my-component2 v-bind:cmpdata="data"></my-component2>
+	</div>
+
+
+	<script>
+		var cmp1 ={
+			props : ["cmpdata"],
+			template:"<div>첫 번쨰 지역 컴포넌트:{{cmpdata}}</div>",
+			
+		}
+
+		var cmp2 ={
+			props : ["cmpdata"],
+			template : "<div>첫 번쨰 지역 컴포넌트:{{cmpdata}}</div>",
+		}
+
+		var app = new Vue({
+			el: "#app",
+			data:{
+				data : 100
+			},
+			components:{
+				"my-component": cmp1,
+				"my-component2": cmp2
+			}
+		})
+		// 1. cmp1Data 상위로 이동
+		// 2. my-component, my-component2 이동한 데이터를 전달.
+		// 3. props를 써서 화면에 출력 
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>이벤트를 발생시키고 수신하기</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+	<div id="app">
+		<!-- 이벤트를 줄떄 v-on  or @ -->
+		<child-component @show-log="printText"></child-component>
+	</div>	
+
+	<script>
+		Vue.component("child-component",{
+			template: "<button v-on:click='showLog'>show</button>",
+			methods:{
+				showLog(){
+					this.$emit("show-log");
+				}
+			}
+		})
+
+		var app = new Vue({
+			el:"#app",
+			methods:{
+				printText(){
+					console.log("버튼 이벤트 발생")
+				}
+			}
+		})
+
+	</script>
+</body>
+</html>
