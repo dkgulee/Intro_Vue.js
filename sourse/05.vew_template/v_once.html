@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Page Title</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+	<div id="app" v-once>
+		{{message}}
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data:{
+				message: "Hellow Vue.js"
+			}
+		})
+
+	</script>
+	
+</body>
+</html>

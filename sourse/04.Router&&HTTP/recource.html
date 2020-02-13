@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Rescource active</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- vue resource cdn 구글에 검색 하면 나옴 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.4/vue-resource.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click=getData>프레임워크 목록 가져오기</button>
+	</div>
+
+	<script>
+		
+		var app = new Vue({
+			el:"#app",
+			methods:{
+				getData(){
+					this.$http.get("https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json")
+					.then(function (response) {
+						console.log(response);
+						console.log(JSON.parse(response.data));
+						
+					})
+				}
+			}
+		});
+	</script>
+</body>
+</html>

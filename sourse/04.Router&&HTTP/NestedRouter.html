@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Page Title</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h3>라우터 실습</h3>
+		<router-link to="/user">user로 이동</router-link>
+		<router-view></router-view>
+		<h3>하단</h3>
+	</div>
+
+	<script>
+		// 컴포넌트 내용 정의
+		var User ={
+			template: `<div> User Component 
+				<router-view></router-view>  
+				<router-link to="/user/posts">posts로 이동</router-link>
+				<router-link to="/user/profile">profile 이동</router-link>
+				</div> `
+		};
+
+		var UserProfile = { template: "<p>User Profile Component </p>"};
+		var UserPost = {template: "<p> User Post Component</p>"}
+
+
+		var routes = [
+			{
+				path: '/user',
+				component : User,
+				children:[
+					{
+						path: 'posts',
+						component : UserPost
+					},
+					{
+						path: 'profile',
+						component: UserProfile
+					},
+				]
+			}
+		];
+
+		var router = new VueRouter({
+			mode: 'history',
+			routes
+		})
+
+		var app = new Vue({
+			router
+		}).$mount("#app")
+	</script>
+</body>
+</html>

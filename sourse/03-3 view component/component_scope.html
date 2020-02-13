@@ -7,26 +7,26 @@
 </head>
 <body>
 	<div id ="app">
-		<my-component v-bind:components="cmp1Data"></my-component>
-		<my-component2 v-bind:data.cmp2Data="cmp1Data"></my-component2>
+		<my-component v-bind:cmp1-data="cmp1data"></my-component>
+		<my-component2 v-bind:cmp-data="cmp1data"></my-component2>
 	</div>
 
 
 	<script>
 		var cmp1 ={
 			template:"<div>첫 번쨰 지역 컴포넌트:{{cmp1Data}}</div>",
-			data: function(){
-				return{
-					cmp1Data :100
+			data: function () {
+				return {
+					cmp1Data: 100
 				}
 			}
 		}
 
 		var cmp2 ={
-			template : "<div>첫 번쨰 지역 컴포넌트:{{cmp2Data}}</div>",
-			data : function(){
+			template : "<div>첫 번쨰 지역 컴포넌트:{{cmp-data}}</div>",
+			data: function () {
 				return{
-					cmp2Data: cmp1.data.cmp1Data
+					cmp2Data: cmp1.data.cmp1data
 				}
 			}
 		}
@@ -34,7 +34,6 @@
 		var app = new Vue({
 			el: "#app",
 			components:{
-				"cmp1Data": 100,
 				"my-component": cmp1,
 				"my-component2": cmp2
 			}

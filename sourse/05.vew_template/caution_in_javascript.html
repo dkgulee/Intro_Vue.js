@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>caution in javascript</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+	<div id="app">
+		<!-- {{var a =10 }} 선언문 사용 x
+		{{ if (true) { return 100}}}  분기문 사용 x -->
+		{{ true ? 100 : 0}}
+		<!-- 되는데 사용하는것을 권장하지 않음 -->
+		{{ message.split(' ').reverse().join('')}} 
+		<hr>
+		{{reversedMessage}}
+	</div>
+
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data:{
+				message: 'Hello Veu.js!'
+			},
+			// 데이터의 속성을 자동으로 계싼해 주는 속성
+			computed:{
+				reversedMessage:function(){
+					// this <- var app 안에 있는 message 를 가지고 온다.
+					return this.message.split(' ').reverse().join('');
+				}
+			}
+		})
+
+	</script>
+	
+</body>
+</html>

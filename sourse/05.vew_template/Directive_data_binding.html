@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Page Title</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<a v-if="flag">두잇 Vue.js</a>
+		<ul>
+			<!-- 유니크한 키를 찾아서 바꿀떄 바로 찾아줌(중복되지 않는 키) -->
+			<li v-for="system in systems" v-bind:key="system">{{system}}</li>
+		</ul>
+		<p v-show="flag">두있 Vue.js</p>
+		<h5 v-bind:id = 'uid'>뷰 입문서</h5>
+		<button v-on:click="popupAlert">경고창 버튼</button>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data:{
+				flag:true,
+				systems : ['android', 'ios', 'window'],
+				uid : 10
+			},
+			methods:{
+				popupAlert:function(){
+					return alert("경고 창 표시");
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

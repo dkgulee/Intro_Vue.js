@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Data Binding</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p v-bind:id="idA">아이디 바인딩</p>
+		<p v-bind:class="classA">클레스 바인딩</p>
+		<p :style="styleA">스타일 바인딩</p>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data:{
+				idA: 10,
+				classA : 'contaniner',
+				styleA : 'color:blue'
+			}
+		})
+	</script>
+
+</body>
+</html>
